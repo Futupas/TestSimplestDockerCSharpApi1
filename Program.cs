@@ -18,6 +18,11 @@ builder.WebHost.ConfigureKestrel((context, serverOptions) =>
 });
 
 var app = builder.Build();
+app.UseStaticFiles();
+var options = new DefaultFilesOptions();
+options.DefaultFileNames.Clear();
+options.DefaultFileNames.Add("index.html");
+app.UseDefaultFiles(options);
 
 // Configure the HTTP request pipeline.
 if (true || app.Environment.IsDevelopment())
