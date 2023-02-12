@@ -1,0 +1,30 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  SSH_PRIVATE_KEY: ${{ secrets.AWS_SSH_PRIVATE_KEY }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Configure SSH
+      uses: appleboy/ssh-action@master
+      with:
+        host: ec2-100-25-171-78.compute-1.amazonaws.com
+        username: ubuntu
+#         password: <password>
+        script: |
+          cd /opt/projects/github-cicd-1/TestSimplestDockerCSharpApi1
+          git pull origin main
+          cd /opt/projects/github-cicd-1
+          ./stop-containers.sh
+          ./start-containers.sh
