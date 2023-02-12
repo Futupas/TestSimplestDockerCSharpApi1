@@ -30,6 +30,6 @@ jobs:
           docker stop github-cicd-1
           docker rm github-cicd-1
           docker build -t github-cicd-1-image .
-          docker run --network network1 --name github-cicd-1 github-cicd-1-image
+          docker run -d --network network1 --name github-cicd-1 github-cicd-1-image
 #          ./stop-containers.sh
 #          ./start-containers.sh
