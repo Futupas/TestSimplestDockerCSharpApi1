@@ -21,7 +21,7 @@ jobs:
       with:
         host: ec2-100-25-171-78.compute-1.amazonaws.com
         username: ubuntu
-        private-key: ${{ env.SSH_PRIVATE_KEY }}
+        private-key: ${{ env.AWS_SSH_PRIVATE_KEY  }}
 #         password: <password>
         script: |
           cd /opt/projects/github-cicd-1/TestSimplestDockerCSharpApi1
