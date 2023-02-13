@@ -2,7 +2,8 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0
 
 WORKDIR /opt/app
 
-COPY TestSimplestDockerCSharpApi1 .
+COPY . .
+# COPY TestSimplestDockerCSharpApi1 .
 
 RUN dotnet restore TestWebApi2.csproj
 
