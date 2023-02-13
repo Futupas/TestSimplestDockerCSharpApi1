@@ -30,7 +30,7 @@ public class WeatherForecastController : ControllerBase
         .ToArray();
     }
 
-    [HttpGet("endpoint2")]
+    [HttpGet("/endpoint2")]
     public string GetTestEndpointFromVersion2()
     {
         return "Hello world from v2";
