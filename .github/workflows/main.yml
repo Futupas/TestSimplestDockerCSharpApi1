@@ -16,7 +16,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Configure SSH
+    - name: SSH AWS1 - download and rebuild docker image
       uses: appleboy/ssh-action@master
       with:
         host: ec2-100-25-171-78.compute-1.amazonaws.com
@@ -28,5 +28,6 @@ jobs:
           git pull origin main
           docker stop github-cicd-1
           docker rm github-cicd-1
+          docker image rm github-cicd-1-image
           docker build -t github-cicd-1-image .
           docker run -d --network network1 --name github-cicd-1 github-cicd-1-image
