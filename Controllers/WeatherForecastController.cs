@@ -35,4 +35,10 @@ public class WeatherForecastController : ControllerBase
     {
         return "Hello world from v2";
     }
+
+    [HttpGet("/endpoint3")]
+    public string GetTestEndpointFromVersion3()
+    {
+        return "Hello world from v3";
+    }
 }
